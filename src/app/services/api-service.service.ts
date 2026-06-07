@@ -7,7 +7,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class ApiServiceService {
-  private readonly basePath = environment.apiUrl;
+  // private readonly basePath = environment.apiUrl;
+  basePath = 'https://almesbarbackend-2.vercel.app/api/v1/'
 
   private readonly jsonHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
