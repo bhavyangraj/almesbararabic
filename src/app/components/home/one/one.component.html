@@ -15,7 +15,8 @@
           class="cursor"
           (click)="gotoDetail(m)"
           [src]="m?.frontimage || m?.image"
-          loading="lazy"
+          fetchpriority="high"
+          loading="eager"
           width="60"
           height="60"
           alt=""
@@ -66,6 +67,8 @@
           <img
             [src]="slide.image || checkFileExists2(slide.id_number)"
             alt="{{ slide.title }}"
+             fetchpriority="high"
+          loading="eager"
           />
           <div class="overlay">
             <h3>{{ slide.title }}</h3>
@@ -101,7 +104,8 @@
           class="cursor"
           (click)="gotoDetail(m)"
           [src]="m?.frontimage || m?.image"
-          loading="lazy"
+          fetchpriority="high"
+          loading="eager"
           alt=""
         />
         <a class="cursor" (click)="gotoDetail(m)">{{ m?.title }}</a>
@@ -175,7 +179,8 @@
           class="cursor"
           (click)="gotoDetail(m)"
           [src]="m?.frontimage || m?.image"
-          loading="lazy"
+           fetchpriority="high"
+          loading="eager"
           alt=""
         />
         <a class="cursor" (click)="gotoDetail(m)">{{ m?.title }}</a>
