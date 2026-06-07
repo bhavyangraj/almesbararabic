@@ -1,0 +1,121 @@
+:host {
+  --body-background: black;
+  --player-background: lightskyblue;
+  --player-progress-bar: white;
+  --paused: #647693;
+  --active: #2f3595;
+  --playerHeight: 12px;
+  --playerWidth: 150px;
+  --transition: 0.2s ease-out;
+
+  font-family: Koulen, Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  color: black;
+}
+
+.player-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 30px;
+  background-color: var(--player-background);
+  width: auto;
+  position: fixed;
+  top: 92%;
+  right: 8%;
+}
+
+@media (max-width: 1024px) {
+  .progress-container {
+    width: 200px !important;
+  }
+
+  .player-container {
+    top: auto !important;
+    right: auto !important;
+    position: relative;
+    margin-top: 20px;
+  }
+}
+
+.player-container > *:not(button) {
+  user-select: none;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  width: var(--playerWidth);
+  height: var(--playerHeight);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--player-progress-bar);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right center;
+  background: var(--paused);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.track-current,
+.track-duration {
+  min-width: 42px;
+  text-align: center;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.player-button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.player-button svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: var(--paused);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke var(--transition);
+}
+
+.player-button svg polygon {
+  fill: var(--paused);
+  stroke: none;
+}
+
+.player-container.active svg polygon {
+  fill: var(--active);
+}
+
+.player-container.active .progress-bar {
+  background: var(--active);
+}
+
+.player-container.active .track-current {
+  color: var(--active);
+}
+
+.player-container.active svg {
+  stroke: var(--active);
+}

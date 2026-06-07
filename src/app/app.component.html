@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<!-- <app-my-loader></app-my-loader> -->
+
+<router-outlet></router-outlet>
+<app-footer style="direction: rtl"></app-footer>
+
+<div class="back-to-top" [class.show]="isShown" (click)="scrollToTop()">
+  <svg class="progress-ring" width="60" height="60">
+    <circle
+      class="progress-ring__background"
+      cx="30"
+      cy="30"
+      r="24"
+      stroke-width="6"
+    ></circle>
+    <circle
+      class="progress-ring__progress"
+      cx="30"
+      cy="30"
+      r="24"
+      stroke-width="6"
+      [attr.stroke-dasharray]="circumference"
+      [attr.stroke-dashoffset]="strokeDashoffset"
+    ></circle>
+  </svg>
+  <div class="arrow">↑</div>
+</div>

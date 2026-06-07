@@ -1,0 +1,63 @@
+:host ::ng-deep p {
+  text-align: justify !important;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: justify;
+  direction: rtl;
+  color: #132d62;
+  font-size: 1.5em;
+}
+.container-fluid {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.button-22 {
+  background-color: lightskyblue;
+  border-color: lightskyblue;
+}
+.button-21 {
+  background-color: lightseagreen;
+  border-color: lightseagreen;
+}
+button svg {
+  color: black;
+  stroke-width: 4;
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 1024px) {
+  .carousel {
+    height: auto !important;
+    margin-right: 15%;
+    margin-left: auto;
+    max-width: 300px !important;
+  }
+
+  #order2 {
+    order: 2;
+  }
+
+  .col-4 {
+    width: 42%;
+    margin-right: 8%;
+  }
+
+  .dropdown-bar {
+    transform: translatex(-50%);
+  }
+  .col-12 {
+    margin-top: auto !important;
+  }
+
+  :host ::ng-deep p {
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 1025px) {
+  :host ::ng-deep p {
+    font-size: 20px;
+  }
+}

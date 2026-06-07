@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Koulen&display=swap");
+
+* {
+  direction: ltr;
+}
+
+:host {
+  --body-background: black;
+  --player-background: lightskyblue;
+  --player-progress-bar: white;
+  --paused: #647693;
+  --active: #2f3595;
+  --playerHeight: 150px;
+  --transition: 0.2s ease-out;
+
+  font-family: Koulen, Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  color: black;
+}
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 10px 10px 10px;
+  border-radius: 30px;
+  background-color: var(--player-background);
+  width: 50px;
+  position: fixed;
+  top: 35%;
+  right: 8%;
+}
+
+.player-container > *:not(button) {
+  user-select: none;
+}
+
+.progress-container {
+  display: flex;
+  align-items: flex-end;
+  width: 5px;
+  height: var(--playerHeight);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--player-progress-bar);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  background: var(--paused);
+  transition: background var(--transition);
+}
+
+.track-current {
+  transition: color var(--transition);
+}
+
+.track-duration {
+  user-select: none;
+}
+
+.player-button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.player-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.player-button svg {
+  width: 35px;
+  fill: none;
+  stroke: var(--paused);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke var(--transition);
+}
+
+.player-button svg polygon {
+  fill: var(--paused);
+  stroke: none;
+}
+
+.player-container.active svg polygon {
+  fill: var(--active);
+}
+
+.player-container.active .progress-bar {
+  background: var(--active);
+}
+
+.player-container.active .track-current {
+  color: var(--active);
+}
+
+.player-container.active svg {
+  stroke: var(--active);
+}

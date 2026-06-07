@@ -1,0 +1,315 @@
+<div class="container dir-rl">
+  <div
+    class="text-bar d-none d-lg-inline-block"
+    style="position: sticky; bottom: 0px"
+  >
+    <button (click)="changeFontSize('smaller')" class="btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-dash-lg"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"
+        />
+      </svg>
+    </button>
+    <button class="btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <g fill="none" fill-rule="evenodd">
+          <g fill="black" fill-rule="nonzero">
+            <g>
+              <g>
+                <path
+                  d="M9.166 8.397l.08.006c.173.033.26.178.26.436v10.969l-.006.103c-.025.226-.136.339-.334.339H7.744l-.08-.007c-.172-.032-.259-.177-.259-.435V8.838l.005-.103c.025-.226.136-.338.334-.338h1.422zm7.35 2.155l.08.005c.173.027.26.146.26.357v8.974l-.006.085c-.025.185-.136.277-.334.277h-1.422l-.08-.006c-.172-.026-.259-.145-.259-.356v-8.974l.005-.085c.025-.185.136-.277.334-.277h1.422zm.185-4.647l.052.007c.062.018.092.073.092.165v.654l-.005.061c-.016.074-.062.11-.14.11h-.606l-.104.007c-.297.037-.445.241-.445.613 0 .412.183.619.549.619h1.012l.052.006c.061.019.092.074.092.166v.653l-.006.062c-.015.073-.061.11-.138.11h-2.862l-.052-.007c-.061-.018-.092-.073-.092-.165v-.653l.006-.062c.015-.074.061-.11.138-.11h.52l-.05-.144c-.043-.15-.065-.32-.065-.51 0-.481.13-.865.39-1.152.26-.287.622-.43 1.084-.43h.578zM9.35 3.75l.052.007c.062.018.092.073.092.165v.653l-.005.062c-.016.074-.062.11-.14.11h-.606l-.104.007c-.297.037-.445.241-.445.612 0 .413.183.62.549.62h1.012l.052.006c.061.019.092.074.092.165v.654l-.006.062c-.015.073-.061.11-.138.11H6.894l-.052-.007c-.061-.018-.092-.073-.092-.165v-.654l.006-.062c.015-.073.061-.11.138-.11h.52l-.05-.144c-.043-.15-.065-.32-.065-.509 0-.481.13-.866.39-1.152.26-.287.622-.43 1.084-.43h.578z"
+                  transform="translate(-106.000000, -105.000000) translate(48.000000, 93.000000) translate(58.000000, 12.000000)"
+                />
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </button>
+
+    <button (click)="changeFontSize('bigger')" class="btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-plus-lg"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="print-bar d-none d-lg-inline-block"
+    style="position: sticky; bottom: 0px"
+  >
+    <button
+      ngxPrint
+      printSectionId="print-section"
+      [printTitle]="''"
+      class="btn"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-printer"
+        viewBox="0 0 16 16"
+      >
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1" />
+        <path
+          d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"
+        />
+      </svg>
+    </button>
+  </div>
+  <div class="dropdown-bar" style="position: sticky; bottom: 0px">
+    <span style="padding: 20px">الخطوط :</span>
+    <select [(ngModel)]="selectedItem" class="custom-dropdown">
+      <option
+        *ngFor="let item of items"
+        [value]="item.value"
+        style="background-color: #faefd3"
+      >
+        {{ item.label }}
+      </option>
+    </select>
+  </div>
+
+  <div class="row text-center pb-5">
+    <div class="col-md-12" id="order2">
+      <h1
+        class="card-title mb-3 d-lg-none"
+        style="color: #2f3595; font-size: x-large"
+      >
+        {{ books.title }}
+      </h1>
+
+      <img
+        src="{{ books.image }}"
+        class="attachment-shop_single size-shop_single wp-post-image"
+        alt="front171"
+        id="image"
+        title=""
+        data-src="{{ books.image }}"
+        data-large_image_width="995"
+        data-large_image_height="1468"
+        width="400"
+        height="600"
+        style="float: inline-start; margin-left: 25px"
+      />
+
+      <div class="row d-lg-none justify-content-center d-flex">
+        <div class="col-md-4 mb-3 mt-3">
+          <button class="btn btn-primary mb-2 button-22">
+            <a
+              style="color: white"
+              class="link863"
+              href="{{ books.physicalBookBuyURL }}"
+              target="_blank"
+              ><b>شراء كتاب إلكتروني</b></a
+            ></button
+          ><br />
+          <p
+            style="
+              text-align: center !important;
+              margin-top: 10px !important;
+              font-weight: 500;
+            "
+            class="text-primary"
+          >
+            {{ books.physicalPrice }} د.إ
+          </p>
+        </div>
+        <div class="col-md-4" *ngIf="books.eBookBuyURL"></div>
+        <div class="col-md-4" *ngIf="books.eBookBuyURL">
+          <button class="btn btn-primary mb-2 button-21">
+            <a
+              style="color: white"
+              class="link863"
+              href="{{ books.eBookBuyURL }}"
+              target="_blank"
+              ><b>شراء كتاب ورقي</b></a
+            >
+          </button>
+          <p
+            style="
+              text-align: center !important;
+              margin-top: 10px !important;
+              font-weight: 500;
+            "
+            class="text-primary"
+          >
+            {{ books.ebookPrice }} د.إ
+          </p>
+        </div>
+      </div>
+
+      <app-social-links
+        class="d-lg-none"
+        [shareUrl]="currentUrl"
+        [right]="15"
+        [position]="'relative'"
+        [mobile]="true"
+      ></app-social-links>
+
+      <div class="d-lg-none col-12 justify-content-center" id="order2">
+        <a
+          *ngIf="authorData.length > 0"
+          routerLink="/author/{{ authorData[0].name }}"
+          class="cursor"
+        >
+          <img
+            *ngIf="books.image"
+            src="{{ authorData[0]?.image }}"
+            alt="Snapshot Image"
+            class="d-block text-right"
+            style="height: 75px; width: 75px; border-radius: 40px"
+          />
+          <span class="text-right" style="color: #2f3595; float: inline-start">
+            {{ authorData[0]?.author_arabic }}
+          </span>
+        </a>
+      </div>
+
+      <p
+        class="d-lg-none"
+        [innerHtml]="books.introduction"
+        [ngStyle]="{ 'font-size.px': fontSize, 'font-family': selectedItem }"
+        (click)="onContentClick($event)"
+      ></p>
+
+      <app-social-links
+        class="d-none d-lg-flex"
+        [shareUrl]="currentUrl"
+        [right]="3"
+        [position]="'fixed'"
+      ></app-social-links>
+
+      <!-- </div> -->
+      <!-- <div class="col-md-7"> -->
+      <div class="row d-lg-flex d-none">
+        <div class="col-md-3 col-12 justify-content-center" id="order2">
+          <a
+            *ngIf="authorData.length > 0"
+            routerLink="/author/{{ authorData[0].name }}"
+            class="cursor"
+          >
+            <img
+              *ngIf="books.image"
+              src="{{ authorData[0]?.image }}"
+              alt="Snapshot Image"
+              class="d-block text-right"
+              style="height: 75px; width: 75px; border-radius: 40px"
+            />
+            <span
+              class="text-right"
+              style="color: #2f3595; float: inline-start"
+            >
+              {{ authorData[0]?.author_arabic }}
+            </span>
+          </a>
+        </div>
+        <div class="col-md-9">
+          <h1 class="card-title" style="color: #2f3595; font-size: x-large">
+            {{ books.title }}
+          </h1>
+        </div>
+      </div>
+
+      <p dir="rtl" style="text-align: justify">
+        <span
+          style="
+            font-family:
+              times new roman,
+              times,
+              serif;
+          "
+        >
+          <span
+            style="font-size: 18px"
+            [innerHtml]="books.shortDescription"
+          ></span>
+        </span>
+      </p>
+
+      <div class="row d-lg-flex justify-content-center d-none">
+        <div class="col-md-4">
+          <button class="btn btn-primary mb-2 button-22">
+            <a
+              style="color: white"
+              class="link863"
+              href="{{ books.physicalBookBuyURL }}"
+              target="_blank"
+              ><b>شراء كتاب إلكتروني</b></a
+            ></button
+          ><br />
+          <p
+            style="
+              text-align: center !important;
+              margin-top: 10px !important;
+              font-weight: 500;
+            "
+            class="text-primary"
+          >
+            {{ books.physicalPrice }} د.إ
+          </p>
+        </div>
+        <div class="col-md-4" *ngIf="books.eBookBuyURL"></div>
+        <div class="col-md-4" *ngIf="books.eBookBuyURL">
+          <button class="btn btn-primary mb-2 button-21">
+            <a
+              style="color: white"
+              class="link863"
+              href="{{ books.eBookBuyURL }}"
+              target="_blank"
+              ><b>شراء كتاب ورقي</b></a
+            >
+          </button>
+          <p
+            style="
+              text-align: center !important;
+              margin-top: 10px !important;
+              font-weight: 500;
+            "
+            class="text-primary"
+          >
+            {{ books.ebookPrice }} د.إ
+          </p>
+        </div>
+      </div>
+      <p
+        class="d-none d-lg-block"
+        [innerHtml]="books.introduction"
+        [ngStyle]="{ 'font-size.px': fontSize, 'font-family': selectedItem }"
+        (click)="onContentClick($event)"
+      ></p>
+    </div>
+  </div>
+
+  <app-endingsection [url]="'probelibrary'"></app-endingsection>
+</div>
+
+<div id="print-section" class="d-none">
+  <h1 style="text-align: center">{{ books?.title }}</h1>
+  <h3 style="text-align: center">{{ books?.subtitle }}</h3>
+  <div [innerHTML]="books?.introduction"></div>
+</div>

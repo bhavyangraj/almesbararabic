@@ -1,0 +1,347 @@
+* {
+  direction: rtl;
+}
+.snap-back {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  max-height: 800px;
+  background-color: #e6e6e6;
+}
+.snap-back .snap-gradient {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.common-container {
+  z-index: 9999;
+  padding-top: 150px;
+}
+.common-container {
+  padding: 3rem 0;
+  width: 100%;
+  z-index: 11;
+}
+.common-container .common-container-inner {
+  margin: 0 auto;
+  max-width: 1300px;
+  position: relative;
+}
+.single-post-contents {
+  z-index: 999;
+}
+.single-post-contents .snap-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.single-post-contents .snap-details .snap-content-full {
+  width: 70%;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border-radius: 10px;
+}
+.single-post-contents .snap-details .snap-content-full .snap-header-content {
+  position: relative;
+}
+.single-post-contents
+  .snap-details
+  .snap-content-full
+  .snap-header-content
+  .sh-heading {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+.single-post-contents .snap-details .snap-content-full .snap-content p {
+  margin: 20px 0 0;
+  text-align: justify;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 2rem;
+}
+.single-post-contents
+  .snap-details
+  .snap-content-full
+  .snap-header-content
+  .sh-heading
+  p {
+  color: #fff;
+  font-size: 0.9rem;
+}
+.single-post-contents
+  .snap-details
+  .snap-content-full
+  .snap-header-content
+  .sh-heading
+  p
+  span {
+  background-color: #10656e;
+  padding: 0.2rem 0.3rem;
+  color: #fff;
+  border-radius: 0.3rem;
+  border: 1px solid #ddd;
+}
+.single-post-contents
+  .snap-details
+  .snap-content-full
+  .snap-header-content
+  .sh-heading
+  h2 {
+  font-size: 1.7rem;
+  color: #fff;
+  text-shadow: 1px 2px 5px rgb(0, 0, 0);
+  font-weight: 600;
+}
+.snap-back img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.scroll-container {
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background-color: #e9ecef;
+}
+.card-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.card-custom {
+  min-width: 500px;
+  border: 5px solid #2f3595;
+  border-radius: 2.5rem;
+  background-color: #faefd3;
+  box-shadow: none !important;
+  flex-shrink: 0;
+  margin: 0.5rem;
+  padding: 0;
+}
+.btn-custom {
+  background-color: #2f3595;
+  color: white;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+.btn-custom:hover {
+  background-color: #202773;
+}
+.card-img {
+  min-height: 200px;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  padding: 0 0.75rem;
+}
+
+p {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-indent: 50px;
+  color: black;
+  text-align: justify;
+  font-size: 1em;
+}
+:host ::ng-deep sup {
+  font-weight: bold !important;
+}
+:host ::ng-deep sup a {
+  color: #0d6efd;
+}
+:host ::ng-deep h6 {
+  font-size: 1.1em;
+  font-weight: normal;
+}
+
+:host ::ng-deep li a {
+  color: #0d6efd;
+}
+
+button svg {
+  color: black;
+  stroke-width: 4;
+  width: 32px;
+  height: 32px;
+}
+
+.icon-printer {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+.icon-printer .printer-body {
+  width: 80%;
+  height: 42%;
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  margin-left: -40%;
+  background-color: #000;
+  border-top-left-radius: 25%;
+  border-top-right-radius: 25%;
+  border-bottom-left-radius: 75%;
+  border-bottom-right-radius: 75%;
+}
+
+.icon-printer .printer-top {
+  width: 60%;
+  height: 15%;
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  margin-left: -30%;
+  background-color: #151517;
+  border-radius: 20%;
+}
+
+.icon-printer .printer-bottom {
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  bottom: -38%;
+  margin-left: -30%;
+  background-color: #151517;
+  border-radius: 15%;
+}
+
+.icon-printer .printer-file-bottom {
+  width: 50%;
+  height: 16%;
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  margin-left: -25%;
+  background-color: #000;
+  border-radius: 20%;
+}
+
+.icon-printer .printer-file-top {
+  width: 50%;
+  height: 34%;
+  position: absolute;
+  left: 50%;
+  margin-left: -25%;
+  top: 23%;
+  background-color: #000;
+  border-radius: 10%;
+}
+
+.icon-printer .printer-dot {
+  width: 6%;
+  height: 6%;
+  position: absolute;
+  top: 65%;
+  background-color: #151517;
+  border-radius: 100%;
+}
+
+.icon-printer .printer-line {
+  width: 24%;
+  height: 4%;
+  position: absolute;
+  background-color: #151517;
+  border-radius: 15%;
+}
+
+@media print {
+  a[href]::after,
+  img[src]::after {
+    content: none !important;
+  }
+}
+
+.custom-dropdown {
+  background-color: transparent;
+  color: #333;
+  padding: 12px 14px;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.social-bar {
+  top: 5% !important;
+}
+
+.px-7 {
+  padding-left: 4rem;
+  padding-right: 8rem;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  app-social-links {
+    justify-content: center;
+    text-align: center;
+    right: auto !important;
+  }
+  .dropdown-bar {
+    transform: translatex(-200%) !important;
+  }
+}
+@media (max-width: 1024px) {
+  .dropdown-bar {
+    transform: translatex(-50%);
+  }
+
+  .px-7 {
+    padding-right: 1rem !important;
+    padding-left: 0 !important;
+  }
+
+  #img {
+    margin-bottom: 50px;
+    float: none !important;
+  }
+
+  :host ::ng-deep p {
+    overflow-wrap: break-word;
+  }
+
+  .d-lg-none {
+    display: flex !important;
+  }
+  .d-lg-flex,
+  .d-lg-block,
+  .d-lg-inline-block {
+    display: none !important;
+  }
+
+  .col-md-9,
+  .col-md-10 {
+    width: 100% !important;
+    text-align: center;
+    justify-content: center;
+  }
+
+  app-audio-player-horizontal {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .d-lg-none {
+    display: block !important;
+  }
+}

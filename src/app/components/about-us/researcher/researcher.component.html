@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row mb-3 header-sub sticky">
+    <div class="col-md-5 align-self-center">
+      <h1 class="breadcrumb-chevron">باحثون</h1>
+    </div>
+  </div>
+</div>
+
+<div class="researcher-grid">
+  <div class="card" *ngFor="let studiesintolerance of studiesintolerances">
+    <a routerLink="/researcher/{{ studiesintolerance.name }}" class="cursor">
+      <img class="img-fluid" src="{{ studiesintolerance.image }}" alt="..." />
+
+      <p>{{ studiesintolerance.author_arabic }}</p>
+    </a>
+  </div>
+</div>

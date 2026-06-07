@@ -1,0 +1,67 @@
+<div class="container mt-3">
+  <div class="row mb-3 header-sub sticky">
+    <div class="col-md-5 align-self-center">
+      <h1 class="breadcrumb-chevron">مفاهيم فلسفية</h1>
+    </div>
+    <div
+      class="col-md-7 align-self-center d-flex justify-content-end"
+      id="mobiletotal"
+    >
+      <h5 class="bg-secondary p-2 text-white" style="border-radius: 25px">
+        مجموع {{ getName() }} : {{ size }}
+      </h5>
+    </div>
+  </div>
+
+  <div class="row mt-5" *ngIf="philosophicals">
+    <div class="col-md-12" *ngFor="let philosophical of philosophicals">
+      <div class="card mb-5">
+        <div class="card-body" style="position: relative">
+          <div class="row">
+            <div class="col-sm-4">
+              <img
+                src="{{ philosophical.image }}"
+                class="card-img-top cursor"
+                alt="..."
+                style="max-height: 400px"
+                id="card-img"
+                (click)="openInNewTab(philosophical._id)"
+              />
+              <h2
+                (click)="openInNewTab(philosophical._id)"
+                class="card-title text-center cursor"
+                style="font-size: 1.75rem; color: #2f3595"
+              >
+                {{ philosophical.title }}
+              </h2>
+            </div>
+            <div class="col-sm-8">
+              <div class="card scrollable" style="max-height: 400px">
+                <div class="card-body">
+                  <h2 class="card-title text-center" style="font-size: 1.75rem">
+                    {{ philosophical.title }}
+                  </h2>
+                  <p
+                    class="card-text truncate-5"
+                    [class.hide-images]="hideImages"
+                    [innerHtml]="philosophical.description"
+                    style="text-align: justify"
+                  ></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-social-links
+          [shareUrl]="getUrl(philosophical._id)"
+        ></app-social-links>
+      </div>
+    </div>
+    <div *ngIf="loading" class="loading">
+      <div class="loader-spinner"></div>
+      Loading more data...
+    </div>
+  </div>
+
+  <div class="row" *ngIf="philosophicals.length === 0">No Data Available</div>
+</div>

@@ -1,0 +1,5 @@
+@media (max-width: 576px) {
+  .me-5 {
+    margin-right: auto !important;
+  }
+}

@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="row mb-3 header-sub sticky">
+    <div class="col-md-5 align-self-center">
+      <h1 class="breadcrumb-chevron">متجر المسبار</h1>
+    </div>
+
+     <div
+      class="col-md-7 align-self-center d-flex justify-content-end"
+      id="mobiletotal"
+    >
+      <h5 class="bg-secondary p-2 text-white" style="border-radius: 25px">
+        مجموع الكتب: {{ size }}
+      </h5>
+    </div>
+
+    <div class="filters">
+      <button
+        (click)="setFilter('all')"
+        [class.active]="
+          selectedFilter.includes('all') && selectedFilter.length == 1
+        "
+      >
+        كل الكتب
+      </button>
+      <button
+        *ngIf="!selectedFilter.includes('physical')"
+        (click)="setFilter('ebook')"
+        [class.active]="selectedFilter.includes('ebook')"
+      >
+        كتاب إلكتروني
+      </button>
+      <button
+        *ngIf="!selectedFilter.includes('ebook')"
+        (click)="setFilter('physical')"
+        [class.active]="selectedFilter.includes('physical')"
+      >
+        كتاب ورقي
+      </button>
+      <button
+        *ngIf="!selectedFilter.includes('general')"
+        (click)="setFilter('monthly')"
+        [class.active]="selectedFilter.includes('monthly')"
+      >
+        كتب شهرية
+      </button>
+      <button
+        *ngIf="!selectedFilter.includes('monthly')"
+        (click)="setFilter('general')"
+        [class.active]="selectedFilter.includes('general')"
+      >
+        كتب الجمهور
+      </button>
+    </div>
+   
+  </div>
+  
+
+  <div class="row" *ngIf="books">
+    <div class="col-md-2 mb-5" *ngFor="let book of books">
+      
+      <button class="btn mb-2 me-2">
+        <img
+          src="{{ book.frontimage }}"
+          class="card-img-top"
+          alt="..."
+          (click)="gotoDetailPage(book.id, book._id, book.data_type)"
+        />
+      </button>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <button
+          class="btn btn-primary button-22 mb-2"
+          *ngIf="book.eBookBuyURL && !selectedFilter.includes('physical')"
+        >
+          <a
+            style="color: black"
+            class="link863"
+            href="{{ book.eBookBuyURL }}"
+            target="_blank"
+            ><b>شراء كتاب إلكتروني</b></a
+          >
+        </button>
+        <button
+          class="btn btn-primary me-md-2 button-21"
+          *ngIf="!selectedFilter.includes('ebook')"
+        >
+          <a
+            style="color: white"
+            class="link863"
+            href="{{ book.physicalBookBuyURL }}"
+            target="_blank"
+            ><b>شراء كتاب ورقي</b></a
+          >
+        </button>
+      </div>
+      
+    </div>
+
+    <div *ngIf="loading" class="loading">
+      <div class="loader-spinner"></div>
+      Loading more data...
+    </div>
+  </div>
+
+  <div class="row" *ngIf="books.length === 0">No Data Available</div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{ data.title }}</h4>
+    <button
+      style="margin: 0"
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body scrollable">
+    <p [innerHtml]="data.description"></p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
+

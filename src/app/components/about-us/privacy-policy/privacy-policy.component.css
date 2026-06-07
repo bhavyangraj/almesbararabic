@@ -1,0 +1,16 @@
+.content-inner ul {
+  list-style: square;
+}
+p {
+  font-size: 28px;
+  font-family: YourCustomFontName2;
+}
+
+li {
+  font-size: 32px;
+}
+@media (max-width: 576px) {
+  * {
+    overflow-x: auto;
+  }
+}

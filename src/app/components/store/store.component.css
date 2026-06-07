@@ -1,0 +1,53 @@
+.col-md-2 {
+  width: 25%;
+}
+@media (max-width: 576px) {
+  .col-md-2 {
+    width: 100%;
+  }
+  #mobiletotal {
+    justify-content: center !important;
+    margin-top: 20px;
+  }
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.filters button {
+  padding: 8px 18px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  background: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.filters button:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  transform: translateY(-1px);
+}
+
+.filters button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.4);
+}
+.button-22 {
+  background-color: lightskyblue;
+  border-color: lightskyblue;
+}
+.button-21 {
+  background-color: lightseagreen;
+  border-color: lightseagreen;
+}

@@ -1,0 +1,8 @@
+.card {
+  max-height: 400px !important;
+}
+@media (max-width: 576px) {
+  .card {
+    max-height: none !important;
+  }
+}

@@ -1,0 +1,60 @@
+<div class="container mt-3">
+  <div class="row mb-3 header-sub sticky">
+    <div class="col-md-5 align-self-center">
+      <h1 class="breadcrumb-chevron">الموزعون</h1>
+    </div>
+  </div>
+
+  <div class="row mt-5" *ngIf="studiesintolerances">
+    <div
+      class="col-md-6"
+      *ngFor="let studiesintolerance of studiesintolerances"
+    >
+      <div class="card mb-5">
+        <div class="card-body" style="position: relative">
+          <div class="row">
+            <div class="col-sm-4">
+              <img
+                src="{{ studiesintolerance.image }}"
+                class="card-img-top"
+                alt="..."
+                style="max-height: 400px"
+                id="card-img"
+              />
+              <h2
+                class="card-title text-center"
+                style="font-size: 1.75rem; color: #2f3595"
+              >
+                {{ studiesintolerance.title }}
+              </h2>
+            </div>
+            <div class="col-sm-8">
+              <div class="card scrollable" style="max-height: 200px">
+                <div class="card-body">
+                  <h2 class="card-title text-center" style="font-size: 1.75rem">
+                    {{ studiesintolerance.title }}
+                  </h2>
+                  <!-- truncate-5 -->
+                  <p
+                    class="card-text"
+                    [class.hide-images]="hideImages"
+                    [innerHtml]="studiesintolerance.description"
+                    style="text-align: justify"
+                  ></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="loading" class="loading">
+      <div class="loader-spinner"></div>
+      Loading more data...
+    </div>
+  </div>
+
+  <div class="row" *ngIf="studiesintolerances.length === 0">
+    No Data Available
+  </div>
+</div>

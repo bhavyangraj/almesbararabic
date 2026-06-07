@@ -1,0 +1,112 @@
+<div class="video-library-container">
+  <div class="library-header">
+    <h2 class="section-title" style="cursor: pointer" routerLink="/videos">
+      <span class="title-arrow">‹</span>
+      فيديو المسبار
+    </h2>
+  </div>
+
+  <div class="video-content">
+    <div class="video-list">
+      <div
+        *ngFor="let video of videos2; trackBy: trackByVideoId"
+        class="video-item"
+        [class.active]="selectedVideo?.id === video.id"
+        (click)="selectVideo(video)"
+      >
+        <div class="video-thumbnail">
+          <!-- <img [src]="getThumbnailUrl(video.media1)" [alt]="video.title" /> -->
+          <img
+            [src]="getThumbnailUrl(video.media1)"
+            [alt]="video.title"
+            loading="lazy"
+            width="320"
+            height="180"
+          />
+          <div class="play-overlay">
+            <div class="play-button">▶</div>
+          </div>
+          <span class="video-duration">{{ video.duration || "" }}</span>
+          <span class="video-category">{{ video.category || "YouTube" }}</span>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">
+            {{ video.title }}
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="featured-video" *ngIf="selectedVideo">
+      <div class="featured-thumbnail">
+        <iframe
+          [src]="selectedVideo.media1 | safeUrl"
+          class="card-img-top cursor"
+          alt="..."
+          height="100%"
+          width="560"
+          frameborder="0"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <div class="featured-info">
+        <h1 class="featured-title cursor" (click)="gotoVideo(selectedVideo)">
+          {{ selectedVideo.title }}
+        </h1>
+      </div>
+    </div> -->
+
+    <div class="featured-video" *ngIf="selectedVideo">
+      <div class="featured-thumbnail cursor" (click)="loadVideo()">
+        <!-- Thumbnail shown first (VERY LIGHT) -->
+        <!-- <img
+          *ngIf="!isVideoLoaded"
+          [src]="getThumbnailUrl(selectedVideo.media1)"
+          class="card-img-top"
+          alt="Video thumbnail"
+          loading="lazy"
+        /> -->
+
+        <img
+          *ngIf="!isVideoLoaded"
+          [src]="getThumbnailUrl(selectedVideo.media1)"
+          class="card-img-top"
+          alt="Video thumbnail"
+          width="1280"
+          height="720"
+          loading="lazy"
+        />
+
+        <div *ngIf="!isVideoLoaded" class="play-button">
+          <svg viewBox="0 0 68 48" width="68" height="48">
+            <path
+              d="M66.52 7.74a8 8 0 0 0-5.64-5.66C55.88.67 34 .67 34 .67s-21.88 0-26.88 1.41A8 8 0 0 0 1.48 7.74 83.4 83.4 0 0 0 0 24a83.4 83.4 0 0 0 1.48 16.26 8 8 0 0 0 5.64 5.66c5 1.41 26.88 1.41 26.88 1.41s21.88 0 26.88-1.41a8 8 0 0 0 5.64-5.66A83.4 83.4 0 0 0 68 24a83.4 83.4 0 0 0-1.48-16.26z"
+              fill="#f00"
+            />
+            <path d="M45 24 27 14v20" fill="#fff" />
+          </svg>
+        </div>
+
+        <!-- YouTube iframe only loads AFTER click -->
+        <iframe
+          *ngIf="isVideoLoaded"
+          [src]="videoUrl | safeUrl"
+          class="card-img-top"
+          height="100%"
+          width="560"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; encrypted-media"
+        >
+        </iframe>
+      </div>
+
+      <div class="featured-info">
+        <h1 class="featured-title cursor" (click)="gotoVideo(selectedVideo)">
+          {{ selectedVideo.title }}
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>

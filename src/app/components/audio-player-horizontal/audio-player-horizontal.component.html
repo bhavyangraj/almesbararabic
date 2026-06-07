@@ -1,0 +1,30 @@
+<div class="player-container" [class.active]="isPlaying">
+  <button class="player-button" (click)="togglePlay()" [disabled]="!isLoaded">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      role="img"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+      <g class="player-button-icon">
+        <polygon *ngIf="!isPlaying" points="10 8 16 12 10 16 10 8"></polygon>
+        <ng-container *ngIf="isPlaying">
+          <line x1="10" y1="15" x2="10" y2="9"></line>
+          <line x1="14" y1="15" x2="14" y2="9"></line>
+        </ng-container>
+      </g>
+    </svg>
+  </button>
+
+  <span class="track-current">{{ currentTime }}</span>
+
+  <div class="progress-container" title="Progress" (click)="seekAudio($event)">
+    <div
+      class="progress-bar"
+      [style.transform]="'scaleX(' + progressScale + ')'"
+    ></div>
+  </div>
+
+  <span class="track-duration">{{ duration }}</span>
+</div>

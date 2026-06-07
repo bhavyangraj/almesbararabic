@@ -1,0 +1,84 @@
+<div
+  class="container-fluid mt-4 d-flex justify-content-center d-none d-lg-block"
+>
+  <div class="row" style="margin-right: 5%; margin-left: 5%">
+    <div class="studies-placeholder">
+      <section *ngIf="iranian_studies">
+        <div class="text-center">
+          <a routerLink="/irani" class="cursor text-black iranihover"
+            ><h3 class="section-title">دراسات إيرانيّة</h3></a
+          >
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-3" *ngFor="let study of iranian_studies">
+            <div class="card article-card mb-5 border-0 shadow-sm">
+              <a routerLink="/iranianstudies/{{ study?._id }}" class="cursor">
+                <!-- <img
+                [src]="study.image"
+                loading="lazy"
+                class="card-img-top"
+                alt=""
+              /> -->
+
+                <img
+                  [src]="study.image"
+                  loading="lazy"
+                  class="card-img-top"
+                  width="400"
+                  height="250"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">
+                    {{ study.title }}
+                  </h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section *ngIf="studies_in_tolerance">
+        <div class="text-center">
+          <a
+            routerLink="/studiesintolerance"
+            class="cursor text-black iranihover"
+            ><h3 class="section-title">دراسات في التسامح</h3></a
+          >
+        </div>
+        <div class="row mt-3" style="margin-right: 5%; margin-left: 5%">
+          <div class="col-md-3" *ngFor="let study of studies_in_tolerance">
+            <div class="card article-card mb-5 border-0 shadow-sm">
+              <a
+                routerLink="/studiesintolerance/{{ study?._id }}"
+                class="cursor"
+              >
+                <!-- <img
+                [src]="study.image"
+                loading="lazy"
+                class="card-img-top"
+                alt=""
+              /> -->
+
+                <img
+                  [src]="study.image"
+                  loading="lazy"
+                  class="card-img-top"
+                  width="400"
+                  height="250"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">
+                    {{ study.title }}
+                  </h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+.col-md-2 {
+  width: 20% !important;
+}
+
+@media (max-width: 576px) {
+  .col-md-2 {
+    width: 100% !important;
+  }
+  #mobiletotal {
+    justify-content: center !important;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .col-md-2 {
+    width: 50% !important;
+  }
+  #mobiletotal {
+    justify-content: center !important;
+    margin-top: 20px;
+  }
+}
+.card-img-top {
+  border-radius: 50px;
+}
+
+.ngx-dropdown-list-container {
+  top: 40px !important;
+  border-radius: 25px !important;
+}
+
+.ngx-dropdown-list-container .available-items .available-item {
+  background: lightskyblue !important;
+  border-radius: 50px !important;
+  color: #2f3595 !important;
+  text-align: center !important;
+  margin-bottom: 10px;
+  font-weight: 600 !important;
+}
+
+.ngx-dropdown-list-container {
+  overflow-y: auto;
+  max-height: 500px;
+  padding-right: 10px;
+  padding-left: 12px;
+}
+.ngx-dropdown-list-container::-webkit-scrollbar {
+  width: 1em;
+}
+.ngx-dropdown-list-container::-webkit-scrollbar-thumb {
+  background-color: #2f3595;
+  outline: 1px solid slategrey;
+}
+.ngx-dropdown-list-container.ngx-dropdown-list-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #b8daff;
+}
+
+.ngx-dropdown-container .ngx-dropdown-button {
+  background-color: #0d6efd !important;
+  color: white !important;
+  border-color: #0d6efd !important;
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  font-size: larger !important;
+}
+
+.nsdicon-angle-down.up {
+  top: 0 !important;
+}
+
+.nsdicon-angle-down {
+  top: 5px !important;
+}
+
+.ngx-dropdown-container .ngx-dropdown-button .nsdicon-angle-down:before {
+  border-width: 0.3em 0.3em 0 0 !important;
+  height: 15px !important;
+  width: 15px !important;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.filters button {
+  padding: 8px 18px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  background: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.filters button:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  transform: translateY(-1px);
+}
+
+.filters button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.4);
+}

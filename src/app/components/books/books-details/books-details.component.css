@@ -1,0 +1,740 @@
+.container-fluid {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+:host ::ng-deep p {
+  text-align: justify !important;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: justify;
+  direction: rtl;
+  color: #132d62;
+}
+
+:host ::ng-deep ol {
+  text-align: justify !important;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: justify;
+  direction: rtl;
+  color: #132d62;
+  font-size: 1em;
+  list-style: none;
+  counter-reset: item;
+}
+
+:host ::ng-deep ol > li {
+  counter-increment: item;
+  margin-bottom: 5px;
+}
+:host ::ng-deep ol > li:before {
+  margin-right: 10px;
+  content: counter(item);
+  background: #003999;
+  border-radius: 100%;
+  color: white;
+  width: 1.8em;
+  text-align: center;
+  display: inline-block;
+}
+
+:host ::ng-deep ol :nth-child(4) > li {
+  counter-increment: item;
+  margin-bottom: 5px;
+}
+:host ::ng-deep ol :nth-child(4) > li:before {
+  margin-right: 10px;
+  content: counter(item);
+  background: #003999;
+  border-radius: 100%;
+  color: white;
+  width: 1.8em;
+  text-align: center;
+  display: inline-block;
+}
+
+:host ::ng-deep ol :nth-child(4) {
+  text-align: justify !important;
+}
+
+:host ::ng-deep ul {
+  text-align: justify !important;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: justify;
+  direction: rtl;
+  color: #132d62;
+  font-size: larger;
+}
+
+:host ::ng-deep ul {
+  list-style-type: disc !important;
+}
+
+:host ::ng-deep ul :nth-child(4) {
+  text-align: justify !important;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: justify;
+  direction: rtl;
+  color: #132d62;
+  font-size: larger;
+}
+
+:host ::ng-deep h1 {
+  color: black;
+  font-family: Times New Roman;
+  font-weight: bold;
+}
+
+:host ::ng-deep h2 {
+  color: black;
+  font-family: Times New Roman;
+  font-weight: bold;
+}
+
+:host ::ng-deep h3 {
+  color: black;
+  font-family: Times New Roman;
+  font-weight: bold;
+  text-align: right;
+}
+
+:host ::ng-deep p.published {
+  font-size: 1.4em !important;
+  color: white !important;
+  background-color: #2f3595 !important;
+  text-align: center !important;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  /* text-indent: 50px; */
+  font-weight: 700;
+}
+:host ::ng-deep .table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+:host ::ng-deep .table td,
+:host ::ng-deep .table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+:host ::ng-deep .table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+:host ::ng-deep .table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+:host ::ng-deep .table-sm td,
+:host ::ng-deep .table-sm th {
+  padding: 0.3rem;
+}
+:host ::ng-deep .table-bordered {
+  border: 1px solid #dee2e6;
+}
+:host ::ng-deep .table-bordered td,
+:host ::ng-deep .table-bordered th {
+  border: 1px solid #dee2e6;
+}
+:host ::ng-deep .table-bordered thead td,
+:host ::ng-deep .table-bordered thead th {
+  border-bottom-width: 2px;
+}
+:host ::ng-deep .table-borderless tbody + tbody,
+:host ::ng-deep .table-borderless td,
+:host ::ng-deep .table-borderless th,
+:host ::ng-deep .table-borderless thead th {
+  border: 0;
+}
+:host ::ng-deep .table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+:host ::ng-deep .table-hover tbody tr:hover {
+  color: #212529;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+:host ::ng-deep .table-primary,
+:host ::ng-deep .table-primary > td,
+:host ::ng-deep .table-primary > th {
+  background-color: #b8daff;
+}
+:host ::ng-deep .table-primary tbody + tbody,
+:host ::ng-deep .table-primary td,
+:host ::ng-deep .table-primary th,
+:host ::ng-deep .table-primary thead th {
+  border-color: #7abaff;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-primary:hover {
+  background-color: #9fcdff;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-primary:hover > td,
+:host ::ng-deep .table-hover :host ::ng-deep .table-primary:hover > th {
+  background-color: #9fcdff;
+}
+:host ::ng-deep .table-secondary,
+:host ::ng-deep .table-secondary > td,
+:host ::ng-deep .table-secondary > th {
+  background-color: #d6d8db;
+}
+:host ::ng-deep .table-secondary tbody + tbody,
+:host ::ng-deep .table-secondary td,
+:host ::ng-deep .table-secondary th,
+:host ::ng-deep .table-secondary thead th {
+  border-color: #b3b7bb;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-secondary:hover {
+  background-color: #c8cbcf;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-secondary:hover > td,
+:host ::ng-deep .table-hover :host ::ng-deep .table-secondary:hover > th {
+  background-color: #c8cbcf;
+}
+:host ::ng-deep .table-success,
+:host ::ng-deep .table-success > td,
+:host ::ng-deep .table-success > th {
+  background-color: #c3e6cb;
+}
+:host ::ng-deep .table-success tbody + tbody,
+:host ::ng-deep .table-success td,
+:host ::ng-deep .table-success th,
+:host ::ng-deep .table-success thead th {
+  border-color: #8fd19e;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-success:hover {
+  background-color: #b1dfbb;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-success:hover > td,
+:host ::ng-deep .table-hover :host ::ng-deep .table-success:hover > th {
+  background-color: #b1dfbb;
+}
+:host ::ng-deep .table-info,
+:host ::ng-deep .table-info > td,
+:host ::ng-deep .table-info > th {
+  background-color: #bee5eb;
+}
+:host ::ng-deep .table-info tbody + tbody,
+:host ::ng-deep .table-info td,
+:host ::ng-deep .table-info th,
+:host ::ng-deep .table-info thead th {
+  border-color: #86cfda;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-info:hover {
+  background-color: #abdde5;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-info:hover > td,
+:host ::ng-deep .table-hover :host ::ng-deep .table-info:hover > th {
+  background-color: #abdde5;
+}
+:host ::ng-deep .table-warning,
+:host ::ng-deep .table-warning > td,
+:host ::ng-deep .table-warning > th {
+  background-color: #ffeeba;
+}
+:host ::ng-deep .table-warning tbody + tbody,
+:host ::ng-deep .table-warning td,
+:host ::ng-deep .table-warning th,
+:host ::ng-deep .table-warning thead th {
+  border-color: #ffdf7e;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-warning:hover {
+  background-color: #ffe8a1;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-warning:hover > td,
+:host ::ng-deep .table-hover :host ::ng-deep .table-warning:hover > th {
+  background-color: #ffe8a1;
+}
+:host ::ng-deep .table-danger,
+:host ::ng-deep .table-danger > td,
+:host ::ng-deep .table-danger > th {
+  background-color: #f5c6cb;
+}
+:host ::ng-deep .table-danger tbody + tbody,
+:host ::ng-deep .table-danger td,
+:host ::ng-deep .table-danger th,
+:host ::ng-deep .table-danger thead th {
+  border-color: #ed969e;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-danger:hover {
+  background-color: #f1b0b7;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-danger:hover > td,
+:host ::ng-deep .table-hover :host ::ng-deep .table-danger:hover > th {
+  background-color: #f1b0b7;
+}
+:host ::ng-deep .table-light,
+:host ::ng-deep .table-light > td,
+:host ::ng-deep .table-light > th {
+  background-color: #fdfdfe;
+}
+:host ::ng-deep .table-light tbody + tbody,
+:host ::ng-deep .table-light td,
+:host ::ng-deep .table-light th,
+:host ::ng-deep .table-light thead th {
+  border-color: #fbfcfc;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-light:hover {
+  background-color: #ececf6;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-light:hover > td,
+:host ::ng-deep .table-hover :host ::ng-deep .table-light:hover > th {
+  background-color: #ececf6;
+}
+:host ::ng-deep .table-dark,
+:host ::ng-deep .table-dark > td,
+:host ::ng-deep .table-dark > th {
+  background-color: #c6c8ca;
+}
+:host ::ng-deep .table-dark tbody + tbody,
+:host ::ng-deep .table-dark td,
+:host ::ng-deep .table-dark th,
+:host ::ng-deep .table-dark thead th {
+  border-color: #95999c;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-dark:hover {
+  background-color: #b9bbbe;
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-dark:hover > td,
+:host ::ng-deep .table-hover :host ::ng-deep .table-dark:hover > th {
+  background-color: #b9bbbe;
+}
+:host ::ng-deep .table-active,
+:host ::ng-deep .table-active > td,
+:host ::ng-deep .table-active > th {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-active:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+:host ::ng-deep .table-hover :host ::ng-deep .table-active:hover > td,
+:host ::ng-deep .table-hover :host ::ng-deep .table-active:hover > th {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+:host ::ng-deep .table .thead-dark th {
+  color: #fff;
+  background-color: #343a40;
+  border-color: #454d55;
+}
+:host ::ng-deep .table .thead-light th {
+  color: #495057;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+:host ::ng-deep .table-dark {
+  color: #fff;
+  background-color: #343a40;
+}
+:host ::ng-deep .table-dark td,
+:host ::ng-deep .table-dark th,
+:host ::ng-deep .table-dark thead th {
+  border-color: #454d55;
+}
+:host ::ng-deep .table-dark:host ::ng-deep .table-bordered {
+  border: 0;
+}
+:host
+  ::ng-deep
+  .table-dark:host
+  ::ng-deep
+  .table-striped
+  tbody
+  tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+:host ::ng-deep .table-dark:host ::ng-deep .table-hover tbody tr:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.075);
+}
+@media (max-width: 575.98px) {
+  :host ::ng-deep .table-responsive-sm {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  :host ::ng-deep .table-responsive-sm > :host ::ng-deep .table-bordered {
+    border: 0;
+  }
+}
+@media (max-width: 767.98px) {
+  :host ::ng-deep .table-responsive-md {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  :host ::ng-deep .table-responsive-md > :host ::ng-deep .table-bordered {
+    border: 0;
+  }
+}
+@media (max-width: 991.98px) {
+  :host ::ng-deep .table-responsive-lg {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  :host ::ng-deep .table-responsive-lg > :host ::ng-deep .table-bordered {
+    border: 0;
+  }
+}
+@media (max-width: 1199.98px) {
+  :host ::ng-deep .table-responsive-xl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  :host ::ng-deep .table-responsive-xl > :host ::ng-deep .table-bordered {
+    border: 0;
+  }
+}
+:host ::ng-deep .table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+:host ::ng-deep .table-responsive > :host ::ng-deep .table-bordered {
+  border: 0;
+}
+:host ::ng-deep .table {
+  --bs-table-bg: transparent;
+}
+:host ::ng-deep .btn-primary {
+  border-radius: 50px;
+}
+.carousel {
+  margin-left: 15%;
+}
+
+ul.slides {
+  display: block;
+  position: relative;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.slides * {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+ul.slides input {
+  display: none;
+}
+
+.slide-container {
+  display: block;
+}
+
+.slide-image {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+}
+
+.slide-image img {
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s infinite;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -50px;
+  z-index: 999;
+  font-size: 100px;
+  line-height: 600px;
+  color: #2f3595;
+}
+
+.carousel-controls label {
+  display: none;
+  position: absolute;
+  padding: 0 20px;
+  opacity: 1;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.carousel-controls .next-slide {
+  width: 49%;
+  text-align: left;
+  left: -100px;
+}
+
+.carousel-controls .prev-slide {
+  width: 49%;
+  text-align: right;
+  right: 0;
+}
+
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 999;
+  text-align: center;
+}
+
+.carousel-dots .carousel-dot {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.5;
+  margin: 10px;
+}
+
+input:checked + .slide-container .slide-image {
+  opacity: 1;
+  transform: scale(1);
+}
+
+input:checked + .slide-container .carousel-controls label {
+  display: block;
+}
+
+input#img-1:checked ~ .carousel-dots label#img-dot-1,
+input#img-2:checked ~ .carousel-dots label#img-dot-2,
+input#img-3:checked ~ .carousel-dots label#img-dot-3,
+input#img-4:checked ~ .carousel-dots label#img-dot-4,
+input#img-5:checked ~ .carousel-dots label#img-dot-5,
+input#img-6:checked ~ .carousel-dots label#img-dot-6 {
+  opacity: 1;
+}
+
+input:checked + .slide-container .nav label {
+  display: block;
+}
+
+.carousel2 {
+  margin-left: 15%;
+}
+
+ul.slides2 {
+  display: block;
+  position: relative;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.slides2 * {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+ul.slides2 input {
+  display: none;
+}
+
+.slide-container2 {
+  display: block;
+}
+
+.slide-image2 {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+}
+
+.slide-image2 img {
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+}
+
+.carousel-controls2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -50px;
+  z-index: 999;
+  font-size: 100px;
+  line-height: 600px;
+  color: #2f3595;
+}
+
+.carousel-controls2 label {
+  display: none;
+  position: absolute;
+  padding: 0 20px;
+  opacity: 1;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.carousel-controls2 .next-slide {
+  width: 49%;
+  text-align: left;
+  left: -100px;
+}
+
+.carousel-controls2 .prev-slide {
+  width: 49%;
+  text-align: right;
+  right: 0;
+}
+
+.carousel-dots2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 999;
+  text-align: center;
+}
+
+.carousel-dots2 .carousel-dot {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.5;
+  margin: 10px;
+}
+
+input:checked + .slide-container2 .slide-image2 {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container2 .carousel-controls2 label {
+  display: block;
+}
+
+input#img-1:checked ~ .carousel-dots2 label#img-dot-1,
+input#img-2:checked ~ .carousel-dots2 label#img-dot-2,
+input#img-3:checked ~ .carousel-dots2 label#img-dot-3,
+input#img-4:checked ~ .carousel-dots2 label#img-dot-4,
+input#img-5:checked ~ .carousel-dots2 label#img-dot-5,
+input#img-6:checked ~ .carousel-dots2 label#img-dot-6 {
+  opacity: 1;
+}
+
+input:checked + .slide-container2 .nav label {
+  display: block;
+}
+
+.card {
+  max-height: none !important;
+}
+:host ::ng-deep h1 {
+  color: #2f3595;
+  text-align: center;
+}
+button svg {
+  color: black;
+  stroke-width: 4;
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 1024px) {
+  .carousel {
+    height: auto !important;
+    margin-right: 15%;
+    margin-left: auto;
+    max-width: 300px !important;
+  }
+
+  #mobile-width {
+    width: 100% !important;
+  }
+
+  .col-4 {
+    width: 42%;
+    margin-right: 8%;
+  }
+
+  .dropdown-bar {
+    transform: translatex(-50%);
+  }
+  .col-12 {
+    margin-top: auto !important;
+  }
+
+  :host ::ng-deep p {
+    overflow-wrap: break-word;
+  }
+
+  .d-lg-none {
+    display: block !important;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .d-lg-flex,
+  .d-lg-block,
+  .d-lg-inline-block {
+    display: none !important;
+  }
+
+  app-audio-player-horizontal {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  app-social-links {
+    justify-content: center;
+    text-align: center;
+    right: auto !important;
+    display: flex !important;
+  }
+  .dropdown-bar {
+    transform: translatex(-200%) !important;
+  }
+
+  app-audio-player-horizontal {
+    width: 50%;
+  }
+}

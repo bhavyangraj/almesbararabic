@@ -1,0 +1,7 @@
+@media (max-width: 576px) {
+  .mobilesearch {
+    top: auto !important;
+    width: 50% !important;
+    left: 25% !important;
+  }
+}

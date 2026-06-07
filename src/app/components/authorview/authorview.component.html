@@ -1,0 +1,138 @@
+<div class="container mt-3" *ngIf="authorname">
+  <div class="row mb-3 header-sub sticky">
+    <div class="col-md-5 align-self-center">
+      <h1 class="breadcrumb-chevron">{{ authorname }}</h1>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-3" *ngIf="data[0]">
+  <div>
+    <img
+      src="{{ data[0]?.image }}"
+      class="card-img-top img-fluid"
+      alt="..."
+      style="float: right; margin-left: 3%; margin-right: 2%"
+    />
+    <div class="card-body">
+      <p
+        class="card-text"
+        style="text-align: justify"
+        [innerHtml]="data[0].description"
+      ></p>
+    </div>
+  </div>
+</div>
+
+<app-social-links
+  class="d-none d-lg-flex"
+  [shareUrl]="getUrl()"
+  [right]="5"
+  [position]="'fixed'"
+></app-social-links>
+
+<app-social-links
+  class="d-lg-none"
+  [shareUrl]="getUrl()"
+  [right]="15"
+  [position]="'relative'"
+  [mobile]="true"
+></app-social-links>
+
+<section class="container mb-5">
+  <div class="ct-header mt-5 mb-5" role="tablist" aria-label="Card tabs">
+    <button
+      *ngFor="let t of keys; let i = index"
+      class="ct-tab"
+      role="tab"
+      [attr.aria-selected]="selectedIndex === i"
+      [attr.aria-controls]="'panel-' + t.id"
+      [id]="'tab-' + t.id"
+      (click)="select(i)"
+      (keydown)="onKeydown($event, i)"
+      [class.active]="selectedIndex === i"
+      tabindex="0"
+    >
+      <span class="ct-tab-left">
+        <div>
+          <div class="ct-title">
+            {{ getArabicName(t) }}
+            <span class="ms-5">({{ authors[t]?.count }})</span>
+          </div>
+        </div>
+      </span>
+      <span class="ct-pill" *ngIf="selectedIndex === i">●</span>
+    </button>
+  </div>
+
+  <div class="row mt-5 mb-5" *ngIf="selectedTab != 'books'">
+    <div
+      class="col-md-3 px-2"
+      *ngFor="let t of authors[selectedTab]?.data; let i = index"
+    >
+      <div
+        (click)="gotoPage(t)"
+        class="card cursor"
+        style="
+          width: 18rem;
+          background-color: white !important;
+          border: none;
+          box-shadow: 0 0.46875rem 2.1875rem #2f3595, 0 0 1.40625rem #2f3595 !important;
+        "
+      >
+        <img
+          style="
+            height: 190px;
+            width: 290px;
+            margin-right: auto;
+            margin-top: auto;
+          "
+          *ngIf="t.image"
+          [src]="t.image"
+          [alt]="t.title"
+          class="img-fluid rounded-start"
+        />
+        <div class="card-body">
+          <p class="card-text" style="font-size: 24px">{{ t.title }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-bordered" *ngIf="selectedTab == 'books'">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">كتاب</th>
+        <th scope="col" class="text-center">اسم الدراسة</th>
+        <th scope="col" class="text-center">وصف</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let c of chapters">
+      <tr>
+        <td style="width: 25%">
+          <a routerLink="/books/{{ c.id }}" class="cursor">
+            <img
+              src="{{ c.frontimage }}"
+              style="
+                height: 500px;
+                width: auto;
+                margin-top: auto;
+                margin-right: auto;
+              "
+            />
+          </a>
+        </td>
+        <td class="d-flex align-items-center" style="height: 500px">
+          {{ c.chapterName }}
+        </td>
+        <td style="width: 50%">
+          <p
+            [innerHtml]="c.chapterDesc"
+            class="scrollable"
+            style="text-align: justify"
+          ></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

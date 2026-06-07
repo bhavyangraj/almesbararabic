@@ -1,0 +1,416 @@
+<div class="container dir-rl">
+  <div
+    class="text-bar d-none d-lg-inline-block"
+    style="position: sticky; bottom: 0px"
+  >
+    <button (click)="changeFontSize('smaller')" class="btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-dash-lg"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"
+        />
+      </svg>
+    </button>
+    <button class="btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <g fill="none" fill-rule="evenodd">
+          <g fill="black" fill-rule="nonzero">
+            <g>
+              <g>
+                <path
+                  d="M9.166 8.397l.08.006c.173.033.26.178.26.436v10.969l-.006.103c-.025.226-.136.339-.334.339H7.744l-.08-.007c-.172-.032-.259-.177-.259-.435V8.838l.005-.103c.025-.226.136-.338.334-.338h1.422zm7.35 2.155l.08.005c.173.027.26.146.26.357v8.974l-.006.085c-.025.185-.136.277-.334.277h-1.422l-.08-.006c-.172-.026-.259-.145-.259-.356v-8.974l.005-.085c.025-.185.136-.277.334-.277h1.422zm.185-4.647l.052.007c.062.018.092.073.092.165v.654l-.005.061c-.016.074-.062.11-.14.11h-.606l-.104.007c-.297.037-.445.241-.445.613 0 .412.183.619.549.619h1.012l.052.006c.061.019.092.074.092.166v.653l-.006.062c-.015.073-.061.11-.138.11h-2.862l-.052-.007c-.061-.018-.092-.073-.092-.165v-.653l.006-.062c.015-.074.061-.11.138-.11h.52l-.05-.144c-.043-.15-.065-.32-.065-.51 0-.481.13-.865.39-1.152.26-.287.622-.43 1.084-.43h.578zM9.35 3.75l.052.007c.062.018.092.073.092.165v.653l-.005.062c-.016.074-.062.11-.14.11h-.606l-.104.007c-.297.037-.445.241-.445.612 0 .413.183.62.549.62h1.012l.052.006c.061.019.092.074.092.165v.654l-.006.062c-.015.073-.061.11-.138.11H6.894l-.052-.007c-.061-.018-.092-.073-.092-.165v-.654l.006-.062c.015-.073.061-.11.138-.11h.52l-.05-.144c-.043-.15-.065-.32-.065-.509 0-.481.13-.866.39-1.152.26-.287.622-.43 1.084-.43h.578z"
+                  transform="translate(-106.000000, -105.000000) translate(48.000000, 93.000000) translate(58.000000, 12.000000)"
+                />
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </button>
+
+    <button (click)="changeFontSize('bigger')" class="btn">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-plus-lg"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    class="print-bar d-none d-lg-inline-block"
+    style="position: sticky; bottom: 0px"
+  >
+    <button
+      ngxPrint
+      printSectionId="print-section"
+      [printTitle]="''"
+      class="btn"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-printer"
+        viewBox="0 0 16 16"
+      >
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1" />
+        <path
+          d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"
+        />
+      </svg>
+    </button>
+  </div>
+  <div class="dropdown-bar" style="position: sticky; bottom: 0px">
+    <span style="padding: 20px">الخطوط :</span>
+    <select [(ngModel)]="selectedItem" class="custom-dropdown">
+      <option
+        *ngFor="let item of items"
+        [value]="item.value"
+        style="background-color: #faefd3"
+      >
+        {{ item.label }}
+      </option>
+    </select>
+  </div>
+
+  <div class="row pb-2 align-items-start">
+    <div class="col-12" id="order2">
+      <div
+        style="width: 30%; float: inline-start"
+        class="text-center"
+        id="mobile-width"
+      >
+        <ngb-carousel
+          class="d-none d-lg-flex"
+          [pauseOnHover]="pauseOnHover"
+          [pauseOnFocus]="pauseOnFocus"
+          [showNavigationArrows]="nobutton"
+          [showNavigationIndicators]="nobutton"
+        >
+          <ng-template ngbSlide *ngIf="books.frontimage">
+            <div class="picsum-img-wrapper">
+              <img
+                [src]="books.frontimage"
+                alt="Random first slide"
+                (error)="onImageError('front')"
+              />
+            </div>
+          </ng-template>
+          <ng-template ngbSlide *ngIf="books.backimage">
+            <div class="picsum-img-wrapper">
+              <img
+                [src]="books.backimage"
+                alt="Random second slide"
+                (error)="onImageError('back')"
+              />
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+        <div class="row d-none d-lg-flex">
+          <div class="col-6">
+            <button
+              *ngIf="fileExists[books.id_number]"
+              class="btn btn-info mt-3"
+            >
+              <a
+                class="text-black"
+                href="https://www.almesbar.net/assets/bhm/mb/TOC/{{
+                  books.id_number
+                }}.pdf"
+                target="_blank"
+                download
+                >جدول المحتويات</a
+              >
+            </button>
+          </div>
+          <div class="col-6">
+            <button
+              *ngIf="fileExists4[books.id_number]"
+              class="btn btn-info mt-3"
+            >
+              <a
+                class="text-black"
+                href="https://www.almesbar.net/assets/bhm/mb/intro_of_books/{{
+                  books.id_number
+                }}.pdf"
+                target="_blank"
+                download
+                >التقديم</a
+              >
+            </button>
+          </div>
+        </div>
+
+        <h1
+          class="card-title d-lg-none"
+          style="color: #2f3595; font-size: xx-large"
+        >
+          {{ books.title }}
+        </h1>
+
+        <h1
+          class="card-title mt-3 d-lg-none"
+          style="color: black; font-size: xx-large"
+        >
+          {{ books.subtitle }}
+        </h1>
+
+        <p
+          class="published d-none d-lg-block"
+          dir="rtl"
+          style="
+            text-align: center;
+            background-color: #2f3595;
+            color: white;
+            border-radius: 70px;
+            font-size: 20px;
+            margin-bottom: 0 !important;
+            margin-left: 15%;
+            margin-right: 10%;
+          "
+        >
+          <span style="font-family: times new roman, times, serif"
+            >تم النشر في: {{ books.publishMonth }} {{ books.publishYear }}</span
+          >
+        </p>
+        <br />
+        <div class="row d-none d-lg-flex">
+          <div *ngIf="books.eBookISBN && books.ebookBook">
+            <button
+              class="btn btn-primary mb-3 button-22"
+              *ngIf="books.id_number < 208"
+            >
+              <a
+                style="color: white"
+                class="link863"
+                href="{{ books.eBookBuyURL }}"
+                target="_blank"
+                ><b>شراء كتاب إلكتروني</b></a
+              ></button
+            ><br />
+            <span class="text-center" dir="rtl" *ngIf="books.ebookBook">
+              <b class="mb-3">
+                <span> الكتاب الإلكتروني</span> : ISBN {{ books.eBookISBN }}</b
+              >
+            </span>
+          </div>
+
+          <div *ngIf="books.paperbackISBN" class="mt-3">
+            <button
+              class="btn btn-primary mb-3 button-21"
+              *ngIf="books.id_number < 208"
+            >
+              <a
+                style="color: white"
+                class="link863"
+                href="{{ books.physicalBookBuyURL }}"
+                target="_blank"
+                ><b>شراء كتاب ورقي</b></a
+              ></button
+            ><br />
+            <span class="text-center pt-3" dir="rtl"
+              ><b class="mb-1"
+                ><span> الكتاب مطبوع- عادي </span>: ISBN
+                {{ books.paperbackISBN }}
+              </b>
+            </span>
+          </div>
+        </div>
+      </div>
+      <br />
+      <h1
+        class="card-title d-none d-lg-block"
+        style="color: #2f3595; font-size: 40px"
+      >
+        {{ books.title }}
+      </h1>
+
+      <h1
+        class="card-title mt-3 d-none d-lg-block"
+        style="color: black; font-size: 35px"
+      >
+        {{ books.subtitle }}
+      </h1>
+
+      <p
+        class="d-none d-lg-block text-start"
+        [innerHtml]="books.introduction"
+        [ngStyle]="{ 'font-size.px': fontSize, 'font-family': selectedItem }"
+        (click)="onContentClick($event)"
+      ></p>
+
+      <ngb-carousel
+        class="d-lg-none"
+        [pauseOnHover]="pauseOnHover"
+        [pauseOnFocus]="pauseOnFocus"
+        [showNavigationArrows]="nobutton"
+        [showNavigationIndicators]="nobutton"
+      >
+        <ng-template ngbSlide *ngIf="books.frontimage">
+          <div class="picsum-img-wrapper">
+            <img [src]="books.frontimage" alt="Random first slide" />
+          </div>
+        </ng-template>
+        <ng-template ngbSlide *ngIf="books.backimage">
+          <div class="picsum-img-wrapper">
+            <img [src]="books.backimage" alt="Random second slide" />
+          </div>
+        </ng-template>
+      </ngb-carousel>
+
+      <div class="row d-lg-none text-center">
+        <div class="col-4">
+          <button *ngIf="fileExists[number[1]]" class="btn btn-info mt-3">
+            <a
+              class="text-black"
+              href="https://www.almesbar.net/assets/bhm/mb/TOC/{{
+                number[1]
+              }}.pdf"
+              target="_blank"
+              download
+              >جدول المحتويات</a
+            >
+          </button>
+        </div>
+        <div class="col-4">
+          <button *ngIf="fileExists4[number[1]]" class="btn btn-info mt-3">
+            <a
+              class="text-black"
+              href="https://www.almesbar.net/assets/bhm/mb/intro_of_books/{{
+                number[1]
+              }}.pdf"
+              target="_blank"
+              download
+              >التقديم</a
+            >
+          </button>
+        </div>
+      </div>
+
+      <p
+        class="published d-lg-none"
+        dir="rtl"
+        style="
+          text-align: center;
+          background-color: #2f3595;
+          color: white;
+          border-radius: 70px;
+          font-size: 20px;
+          margin-bottom: 0 !important;
+          margin-left: 15%;
+          margin-right: 10%;
+        "
+      >
+        <span style="font-family: times new roman, times, serif"
+          >تم النشر في: {{ books.publishMonth }} {{ books.publishYear }}</span
+        >
+      </p>
+      <br />
+      <div class="row d-lg-none text-center">
+        <div *ngIf="books.eBookISBN && books.ebookBook">
+          <button
+            class="btn btn-primary mb-3 button-22"
+            *ngIf="books.id_number < 208"
+          >
+            <a
+              style="color: white"
+              class="link863"
+              href="{{ books.eBookBuyURL }}"
+              target="_blank"
+              ><b>شراء كتاب إلكتروني</b></a
+            ></button
+          ><br />
+          <span class="text-center" dir="rtl" *ngIf="books.ebookBook">
+            <b class="mb-3">
+              <span> الكتاب الإلكتروني</span> : ISBN {{ books.eBookISBN }}</b
+            >
+          </span>
+        </div>
+
+        <div *ngIf="books.paperbackISBN" class="mt-3">
+          <button
+            class="btn btn-primary mb-3 button-21"
+            *ngIf="books.id_number < 208"
+          >
+            <a
+              style="color: white"
+              class="link863"
+              href="{{ books.physicalBookBuyURL }}"
+              target="_blank"
+              ><b>شراء كتاب ورقي</b></a
+            ></button
+          ><br />
+          <span class="text-center pt-3" dir="rtl"
+            ><b class="mb-1"
+              ><span> الكتاب مطبوع- عادي </span>: ISBN
+              {{ books.paperbackISBN }}
+            </b>
+          </span>
+        </div>
+      </div>
+
+      <app-audio-player-horizontal
+        class="d-lg-none"
+        [trackUrl]="books.audioURL"
+        *ngIf="books.audioURL"
+      ></app-audio-player-horizontal>
+    </div>
+  </div>
+
+  <app-social-links
+    class="d-lg-none"
+    [shareUrl]="getUrl(books.id)"
+    [right]="15"
+    [position]="'relative'"
+    [mobile]="true"
+  ></app-social-links>
+  <p
+    class="d-lg-none"
+    [innerHtml]="books.introduction"
+    [ngStyle]="{ 'font-size.px': fontSize, 'font-family': selectedItem }"
+    (click)="onContentClick($event)"
+  ></p>
+
+  <app-social-links
+    class="d-none d-lg-flex"
+    [shareUrl]="getUrl(books.id)"
+    [right]="3"
+    [position]="'fixed'"
+  ></app-social-links>
+
+  <app-audio-player-min
+    class="d-none d-lg-flex"
+    [trackUrl]="books.audioURL"
+    *ngIf="books.audioURL"
+  ></app-audio-player-min>
+
+  <app-endingsection [url]="'books'"></app-endingsection>
+</div>
+
+<div id="print-section" class="d-none">
+  <h1 style="text-align: center">{{ books?.title }}</h1>
+  <h3 style="text-align: center">{{ books?.subtitle }}</h3>
+  <div [innerHTML]="books?.introduction"></div>
+</div>

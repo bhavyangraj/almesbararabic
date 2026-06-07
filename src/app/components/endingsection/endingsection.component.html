@@ -1,0 +1,70 @@
+<section class="mt-3">
+  <div class="col-md-3 align-self-center">
+    <h5
+      class="breadcrumb-chevron mb-5 cursor"
+      style="color: #2f3595; font-size: 1.5rem"
+      (click)="gotoDetail2()"
+    >
+      {{ title }}
+    </h5>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-2 col-sm-12" *ngFor="let study of studies_in_tolerance">
+      <div
+        class="card article-card mb-5 border-0 shadow-sm"
+        style="
+          background-color: white !important;
+          border: none;
+          box-shadow: 0 0.46875rem 2.1875rem #2f3595, 0 0 1.40625rem #2f3595 !important;
+          border-radius: 1rem;
+          max-height: none !important;
+        "
+      >
+        <a class="cursor" (click)="gotoDetail(study)">
+          <img
+            *ngIf="study.image"
+            src="{{ study.image }}"
+            alt=""
+            style="
+              height: 190px;
+              width: 100%;
+              margin-right: auto;
+              margin-top: auto;
+            "
+          />
+          <img
+            *ngIf="study.frontimage"
+            src="{{ study.frontimage }}"
+            alt=""
+            style="
+              height: 300px;
+              width: 290px;
+              margin-right: auto;
+              margin-top: auto;
+            "
+          />
+          <iframe
+            *ngIf="study.media1"
+            [src]="study.media1 | safeUrl"
+            class="card-img-top cursor"
+            alt="..."
+            style="max-height: 200px"
+            width="300"
+            height="200"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+          <div class="card-body">
+            <h3
+              class="card-title cursor"
+              style="color: #2f3595; font-size: 1.25rem"
+              (click)="gotoDetail(study)"
+            >
+              {{ study.title }}
+            </h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

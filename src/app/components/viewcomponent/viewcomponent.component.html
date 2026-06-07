@@ -1,0 +1,66 @@
+<div class="container mt-3">
+  <div class="row mb-3 header-sub sticky">
+    <div class="col-md-5 align-self-center">
+      <h1 class="breadcrumb-chevron">{{ getName() }}</h1>
+    </div>
+    <div
+      class="col-md-7 align-self-center d-flex justify-content-end"
+      id="mobiletotal"
+    >
+      <h5 class="bg-secondary p-2 text-white" style="border-radius: 25px">
+        مجموع {{ getName() }} : {{ size }}
+      </h5>
+    </div>
+  </div>
+
+  <div class="row mt-5" *ngIf="studies">
+    <div class="col-md-12" *ngFor="let study of studies">
+      <div class="card mb-5">
+        <div class="card-body" style="position: relative">
+          <div class="row">
+            <div class="col-sm-4">
+              <img
+                (click)="openInNewTab(study._id)"
+                src="{{ study.image }}"
+                class="card-img-top cursor"
+                alt="..."
+                id="card-img"
+                style="max-height: 177px"
+              />
+              <h2
+                (click)="openInNewTab(study._id)"
+                class="card-title text-center cursor"
+                style="font-size: 1.75rem; color: #2f3595"
+              >
+                {{ study.title }}
+              </h2>
+            </div>
+            <div class="col-sm-8">
+              <div class="scrollable" style="max-height: 400px">
+                <div class="card-body">
+                  <h2 class="card-title text-center" style="font-size: 1.75rem">
+                    {{ study.title }}
+                  </h2>
+                  <p
+                    class="card-text truncate-5"
+                    [class.hide-images]="hideImages"
+                    [innerHtml]="study.description"
+                    style="text-align: justify; max-height: 140px"
+                  ></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <app-social-links [shareUrl]="getUrl(study._id)"></app-social-links>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="loading" class="loading">
+      <div class="loader-spinner"></div>
+      Loading more data...
+    </div>
+  </div>
+
+  <div class="row" *ngIf="studies.length === 0">No Data Available</div>
+</div>

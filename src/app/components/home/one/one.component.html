@@ -1,0 +1,244 @@
+<div class="container-fluid mt-4 d-flex justify-content-center">
+  <div class="row" style="margin-right: 5%; margin-left: 5%">
+    <aside class="col-lg-3 col-md-4 sidebar d-none d-lg-block">
+      <h5 class="mb-5">أحدث المنشورات</h5>
+
+      <div class="latest-item" *ngFor="let m of rightmenu">
+        <!-- <img
+          class="cursor"
+          (click)="gotoDetail(m)"
+          [src]="m?.frontimage || m?.image"
+          loading="lazy"
+          alt=""
+        /> -->
+        <img
+          class="cursor"
+          (click)="gotoDetail(m)"
+          [src]="m?.frontimage || m?.image"
+          loading="lazy"
+          width="60"
+          height="60"
+          alt=""
+        />
+        <a class="cursor" (click)="gotoDetail(m)">{{ m?.title }}</a>
+      </div>
+
+      <!-- <div class="latest-item">
+          <img src="{{ books[1]?.frontimage }}" alt="" />
+          <a routerLink="/books/{{ books[1]?.id }}">{{ books[1]?.title }}</a>
+        </div>
+        <div class="latest-item">
+          <img src="{{ problibrary[0]?.image }}" alt="" />
+          <a
+            routerLink="/probelibrary/{{ problibrary[0]?.id }}/{{
+              problibrary[0]?._id
+            }}"
+            >{{ problibrary[0]?.title }}</a
+          >
+        </div>
+        <div class="latest-item">
+          <img src="{{ problibrary[1]?.image }}" alt="" />
+          <a
+            routerLink="/probelibrary/{{ problibrary[1]?.id }}/{{
+              problibrary[1]?._id
+            }}"
+            >{{ problibrary[1]?.title }}</a
+          >
+        </div>
+        <div class="latest-item">
+          <img src="{{ problibrary[2]?.image }}" alt="" />
+          <a
+            routerLink="/probelibrary/{{ problibrary[2]?.id }}/{{
+              problibrary[2]?._id
+            }}"
+            >{{ problibrary[2]?.title }}</a
+          >
+        </div> -->
+    </aside>
+    <main class="col-lg-6 col-md-4">
+      <div class="slider" *ngIf="slides2.length">
+        <div
+          (click)="gotoDetail(slide)"
+          class="slide cursor"
+          *ngFor="let slide of slides2; let i = index"
+          [class.active]="i === currentSlide"
+        >
+          <img
+            [src]="slide.image || checkFileExists2(slide.id_number)"
+            alt="{{ slide.title }}"
+          />
+          <div class="overlay">
+            <h3>{{ slide.title }}</h3>
+          </div>
+        </div>
+
+        <!-- <div
+          (click)="gotoDetail(slide)"
+          class="slide cursor"
+          *ngFor="let slide of slides2; let i = index"
+          [class.active]="i === currentSlide"
+        >
+          <img
+            [src]="slide.image || checkFileExists2(slide.id_number)"
+            alt="{{ slide.title }}"
+            width="1200"
+            height="600"
+            [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+            [attr.fetchpriority]="i === 0 ? 'high' : 'auto'"
+          />
+        </div> -->
+
+        <button class="prev" (click)="prevSlide()">❮</button>
+        <button class="next" (click)="nextSlide()">❯</button>
+      </div>
+    </main>
+
+    <aside class="col-lg-3 col-md-4 sidebar">
+      <h5 class="mb-5">أحدث الكتب</h5>
+
+      <div class="latest-item" *ngFor="let m of menu">
+        <img
+          class="cursor"
+          (click)="gotoDetail(m)"
+          [src]="m?.frontimage || m?.image"
+          loading="lazy"
+          alt=""
+        />
+        <a class="cursor" (click)="gotoDetail(m)">{{ m?.title }}</a>
+      </div>
+
+      <section class="d-lg-none mt-5">
+        <div class="text-center">
+          <a routerLink="/irani" class="cursor text-black iranihover"
+            ><h3 class="section-title">دراسات إيرانيّة</h3></a
+          >
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-3" *ngFor="let study of iranian_studies">
+            <div class="card article-card mb-5 border-0 shadow-sm">
+              <a routerLink="/iranianstudies/{{ study?._id }}" class="cursor">
+                <img
+                  [src]="study.image"
+                  loading="lazy"
+                  class="card-img-top"
+                  alt=""
+                />
+                <div class="card-body">
+                  <h3 class="card-title">
+                    {{ study.title }}
+                  </h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <div class="latest-item">
+          <img src="{{ books[1]?.frontimage }}" alt="" />
+          <a routerLink="/books/{{ books[1]?.id }}">{{ books[1]?.title }}</a>
+        </div>
+        <div class="latest-item">
+          <img src="{{ problibrary[0]?.image }}" alt="" />
+          <a
+            routerLink="/probelibrary/{{ problibrary[0]?.id }}/{{
+              problibrary[0]?._id
+            }}"
+            >{{ problibrary[0]?.title }}</a
+          >
+        </div>
+        <div class="latest-item">
+          <img src="{{ problibrary[1]?.image }}" alt="" />
+          <a
+            routerLink="/probelibrary/{{ problibrary[1]?.id }}/{{
+              problibrary[1]?._id
+            }}"
+            >{{ problibrary[1]?.title }}</a
+          >
+        </div>
+        <div class="latest-item">
+          <img src="{{ problibrary[2]?.image }}" alt="" />
+          <a
+            routerLink="/probelibrary/{{ problibrary[2]?.id }}/{{
+              problibrary[2]?._id
+            }}"
+            >{{ problibrary[2]?.title }}</a
+          >
+        </div> -->
+    </aside>
+
+    <aside class="col-lg-3 col-md-4 sidebar d-lg-none mt-5">
+      <h5 class="mb-5">أحدث المنشورات</h5>
+
+      <div class="latest-item" *ngFor="let m of rightmenu">
+        <img
+          class="cursor"
+          (click)="gotoDetail(m)"
+          [src]="m?.frontimage || m?.image"
+          loading="lazy"
+          alt=""
+        />
+        <a class="cursor" (click)="gotoDetail(m)">{{ m?.title }}</a>
+      </div>
+
+      <!-- <div class="latest-item">
+          <img src="{{ books[1]?.frontimage }}" alt="" />
+          <a routerLink="/books/{{ books[1]?.id }}">{{ books[1]?.title }}</a>
+        </div>
+        <div class="latest-item">
+          <img src="{{ problibrary[0]?.image }}" alt="" />
+          <a
+            routerLink="/probelibrary/{{ problibrary[0]?.id }}/{{
+              problibrary[0]?._id
+            }}"
+            >{{ problibrary[0]?.title }}</a
+          >
+        </div>
+        <div class="latest-item">
+          <img src="{{ problibrary[1]?.image }}" alt="" />
+          <a
+            routerLink="/probelibrary/{{ problibrary[1]?.id }}/{{
+              problibrary[1]?._id
+            }}"
+            >{{ problibrary[1]?.title }}</a
+          >
+        </div>
+        <div class="latest-item">
+          <img src="{{ problibrary[2]?.image }}" alt="" />
+          <a
+            routerLink="/probelibrary/{{ problibrary[2]?.id }}/{{
+              problibrary[2]?._id
+            }}"
+            >{{ problibrary[2]?.title }}</a
+          >
+        </div> -->
+    </aside>
+
+    <section class="d-lg-none mt-5">
+      <div class="text-center">
+        <a routerLink="/studiesintolerance" class="cursor text-black iranihover"
+          ><h3 class="section-title">دراسات في التسامح</h3></a
+        >
+      </div>
+      <div class="row mt-3" style="margin-right: 5%; margin-left: 5%">
+        <div class="col-md-3" *ngFor="let study of studies_in_tolerance">
+          <div class="card article-card mb-5 border-0 shadow-sm">
+            <a routerLink="/studiesintolerance/{{ study?._id }}" class="cursor">
+              <img
+                [src]="study.image"
+                loading="lazy"
+                class="card-img-top"
+                alt=""
+              />
+              <div class="card-body">
+                <h3 class="card-title">
+                  {{ study.title }}
+                </h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+.list-unstyled li {
+  padding-bottom: 20px;
+  font-size: 22px;
+}
+.social-icons a svg {
+  transition: 0.2s ease;
+}
+
+.social-icons a:hover svg {
+  transform: scale(1.2);
+}
+
+.social-icons #telephone:hover {
+  transform: scale(1.2);
+}
+
+#footerMenu li:hover {
+  background-color: #1966d2 !important;
+  border-radius: 20px;
+}
+#footerMenu li:hover a {
+  color: white !important;
+}

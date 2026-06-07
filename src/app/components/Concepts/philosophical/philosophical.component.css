@@ -1,0 +1,3 @@
+:host ::ng-deep figure {
+  display: none !important;
+}

@@ -1,0 +1,71 @@
+<div class="container mt-3">
+  <div class="row mb-3 header-sub sticky">
+    <div class="col-md-5 align-self-center">
+      <h1 class="breadcrumb-chevron">كتب المركز</h1>
+    </div>
+    <div
+      class="col-md-7 align-self-center d-flex justify-content-end"
+      id="mobiletotal"
+    >
+      <h5 class="bg-secondary p-2 text-white" style="border-radius: 25px">
+        مجموع الكتب: {{ size }}
+      </h5>
+    </div>
+  </div>
+
+  <div class="filters">
+    <button
+      (click)="selectionChanged($event, 'all')"
+      [class.active]="selectedFilter === 'all'"
+    >
+      All
+    </button>
+    <button
+      *ngFor="let drop of dropDownList2"
+      (click)="selectionChanged($event, drop)"
+      [class.active]="selectedFilter === drop.id"
+    >
+      {{ drop.value }}
+    </button>
+  </div>
+
+  <div class="row mt-5" *ngIf="books">
+    <div class="col-md-2 mb-5 grow" *ngFor="let book of books">
+      <button class="btn mb-2 me-2" (click)="gotoDetailPage(book.id, book._id)">
+        <img src="{{ book.frontimage }}" class="card-img-top" alt="..." />
+      </button>
+    </div>
+
+    <div *ngIf="loading" class="loading">
+      <div class="loader-spinner"></div>
+      Loading more data...
+    </div>
+  </div>
+
+  <div class="row" *ngIf="books.length === 0">No Data Available</div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{ data.title }}</h4>
+    <button
+      style="margin: 0"
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body scrollable">
+    <p [innerHtml]="data.description"></p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-light"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>
